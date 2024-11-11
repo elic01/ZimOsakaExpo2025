@@ -637,16 +637,25 @@ function getDefaultResponse(input) {
     return responses.default;
 }
 
+// Markdown parser function
+function parseMarkdown(text) {
+    return text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br><br>');  // Double line break for better readability
+}
 function addMessage(message, isUser = false) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
     messageDiv.innerHTML = `
         ${isUser ? '' : '<i class="fas fa-robot"></i>'}
-        <p>${message}</p>
+        <p>${isUser ? message : parseMarkdown(message)}</p>
     `;
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
+
 
 async function handleUserMessage() {
     const message = userInput.value.trim();
@@ -689,9 +698,25 @@ toggleChat.addEventListener('click', () => {
 
 // Initialize chatbot with welcome message
 window.addEventListener('load', () => {
-    addMessage('Welcome to Zimbabwe Expo 2025! I\'m here to help you explore our pavilion and answer any questions about Zimbabwe\'s participation in Expo 2025 Osaka.');
-});
+    const welcomeMessage = `
+**Welcome to Zimbabwe Expo 2025!** 🇿🇼
 
+I'm your dedicated expo assistant ready to guide you through:
+
+Vision 2030 initiatives and developments
+
+Investment opportunities across multiple sectors
+
+Cultural exhibitions and performances
+
+Event schedules and pavilion information
+
+Learn more about our pavilion at [Expo 2025 Osaka](https://www.expo2025.or.jp/)
+
+What would you like to explore first?
+`;
+    addMessage(welcomeMessage);
+});
 </script>
 
 
