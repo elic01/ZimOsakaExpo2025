@@ -1,3 +1,15 @@
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+
 .map-section {
     padding: 4rem 0;
     background-color: var(--bg-color);
