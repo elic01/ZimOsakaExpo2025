@@ -21,6 +21,7 @@
                 <a href="index.html#opportunities">Opportunities</a>
                 <a href="index.html#culture">Culture</a>
                 <a href="index.html#events">Events</a>
+                <a href="tour.html">Virtual Tour</a>
                 <a href="index.html#contact">Contact</a>
             </div>
         </nav>
@@ -34,36 +35,106 @@
         </div>
     </section>
 
-    <!-- Enhanced Virtual Tour Section -->
-    <section class="virtual-tour-section expanded">
-        <div class="virtual-tour-container">
-            <div class="tour-viewer">
-                <div class="scene-selector">
-                    <button class="scene-btn active" data-scene="victoria-falls">Victoria Falls</button>
-                    <button class="scene-btn" data-scene="great-zimbabwe">Great Zimbabwe</button>
-                    <button class="scene-btn" data-scene="hwange">Hwange National Park</button>
-                    <button class="scene-btn" data-scene="kariba">Lake Kariba</button>
-                    <button class="scene-btn" data-scene="nyanga">Nyanga Mountains</button>
-                    <button class="scene-btn" data-scene="matobo">Matobo Hills</button>
+    <!-- Virtual Tour Section -->
+<section id="virtual-tour" class="virtual-tour-section">
+    <h1 style="text-align: center; font-size: 50px;">Virtual Tour</h1>
+    <div class="virtual-tour-container">
+    
+        <h2 class="section-title" data-aos="fade-up">Virtual Tour</h2>
+        <div class="tour-viewer">
+            
+            <div class="scene-selector">
+                <button class="scene-btn active" data-scene="victoria-falls">
+                    <i class="fab fa-youtube"></i>
+                    <span>Victoria Falls</span>
+                </button>
+                <button class="scene-btn" data-scene="devils-pool">
+                    <i class="fab fa-youtube"></i>
+                    <span>Devil's Pool</span>
+                </button>
+                <button class="scene-btn" data-scene="vic-falls-safari">
+                    <i class="fab fa-youtube"></i>
+                    <span>Vic' Falls Safari</span>
+                </button>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 10px;">Click and drag to pan around. Best experienced in fullscreen</p>
+            <div class="scene-viewer">
+                <div class="scene active" id="victoria-falls">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/FZxA6oQz1ZM?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD" title="Victoria Falls Tour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-
-                <div class="scene-viewer">
-                    <div class="scene active" id="victoria-falls">
-                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/FZxA6oQz1ZM" allowfullscreen></iframe>
-                        <div class="scene-info">
-                            <h3>Victoria Falls</h3>
-                            <p>Experience the majestic Victoria Falls, one of the Seven Natural Wonders of the World.</p>
-                        </div>
-                    </div>
-                    <!-- Add more scenes with relevant YouTube embeds -->
+                <div class="scene" id="devils-pool">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/WsMjBMxpUTc?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD" title="Devil's Pool Experience" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="scene" id="vic-falls-safari">
+                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/o_o7B_UYhPw?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD" title="Victoria Falls Safari" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer (Same as main page) -->
-    <footer class="footer">
-        <!-- Footer content -->
-    </footer>
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Zimbabwe Beyond the Limit</h3>
+                <p>Experience Zimbabwe's journey to prosperity at Expo 2025 Osaka.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#vision">Vision 2030</a></li>
+                    <li><a href="#opportunities">Opportunities</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +263242369330-4</li>
+                    <li><i class="fas fa-envelope"></i> info@zimtrade.co.zw</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 188 Second Street Ext, Harare, Zimbabwe</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Zimbabwe Beyond the Limit. All rights reserved. &copy;SyndicateDevGroup</p>
+        </div>
+    </div>
+</footer>
+<script>
+    // Virtual Tour Scene Switching
+const scenes = {
+    'victoria-falls': 'https://www.youtube.com/embed/FZxA6oQz1ZM?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD',
+    'devils-pool': 'https://www.youtube.com/embed/WsMjBMxpUTc?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD',
+    'vic-falls-safari': 'https://www.youtube.com/embed/o_o7B_UYhPw?list=PLWc9HuueI-rm_v7dB7lefRCBi8hHoEmxD'
+};
+
+document.querySelectorAll('.scene-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.scene-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.scene').forEach(scene => scene.classList.remove('active'));
+        
+        button.classList.add('active');
+        const sceneId = button.dataset.scene;
+        const sceneElement = document.getElementById(sceneId);
+        sceneElement.classList.add('active');
+        
+        const iframe = sceneElement.querySelector('iframe');
+        iframe.src = scenes[sceneId];
+    });
+});
+
+</script>
 </body>
 </html>
