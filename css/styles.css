@@ -27,7 +27,7 @@
 }
 
 .virtual-tour-hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/victoria-falls.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/VictoriaFalls.jpg');
     height: 60vh;
 }
 
@@ -257,17 +257,17 @@ body.dark-mode {
 
 /* Hero Section */
 .hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/VictoriaFalls.jpg');
+    background-size: cover;
+    background-position: center;
     height: 100vh;
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                url('/assets/images/Cataratas_VictoriaFallss1.jpeg');
-    background-size: cover;
-    background-position: center;
+    text-align: center;
+    color: white;
 }
+
 
 .hero-content {
     text-align: center;
