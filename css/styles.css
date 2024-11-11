@@ -1,3 +1,100 @@
+/* Virtual Tour Page Specific Styles */
+.livestream-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.livestream-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: var(--accent-color);
+    color: #FFB142;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livestream-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.livestream-btn i {
+    font-size: 1.2em;
+}
+
+.virtual-tour-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/victoria-falls.jpg');
+    height: 60vh;
+}
+
+.virtual-tour-section.expanded {
+    padding: 50px 0;
+}
+
+.scene-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.scene-info {
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Live Stream Page Specific Styles */
+.livestream-hero {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/expo-pavilion.jpg');
+    height: 60vh;
+}
+
+.livestream-section {
+    padding: 50px 0;
+    background: var(--bg-color);
+}
+
+.livestream-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-stream {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.stream-info {
+    padding: 30px;
+}
+
+.stream-schedule {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.stream-schedule ul {
+    list-style: none;
+    padding: 0;
+}
+
+.stream-schedule li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
 .map-section {
     padding: 4rem 0;
     background-color: var(--bg-color);

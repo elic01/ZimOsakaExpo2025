@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour - Zimbabwe Beyond the Limit</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <!-- Header (Same as main page) -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">Zimbabwe Beyond the Limit</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#vision">Vision 2030</a>
+                <a href="index.html#opportunities">Opportunities</a>
+                <a href="index.html#culture">Culture</a>
+                <a href="index.html#events">Events</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Virtual Tour Hero Section -->
+    <section class="hero virtual-tour-hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Explore Zimbabwe</h1>
+            <p class="hero-subtitle">Take an immersive journey through our beautiful country</p>
+        </div>
+    </section>
+
+    <!-- Enhanced Virtual Tour Section -->
+    <section class="virtual-tour-section expanded">
+        <div class="virtual-tour-container">
+            <div class="tour-viewer">
+                <div class="scene-selector">
+                    <button class="scene-btn active" data-scene="victoria-falls">Victoria Falls</button>
+                    <button class="scene-btn" data-scene="great-zimbabwe">Great Zimbabwe</button>
+                    <button class="scene-btn" data-scene="hwange">Hwange National Park</button>
+                    <button class="scene-btn" data-scene="kariba">Lake Kariba</button>
+                    <button class="scene-btn" data-scene="nyanga">Nyanga Mountains</button>
+                    <button class="scene-btn" data-scene="matobo">Matobo Hills</button>
+                </div>
+
+                <div class="scene-viewer">
+                    <div class="scene active" id="victoria-falls">
+                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/FZxA6oQz1ZM" allowfullscreen></iframe>
+                        <div class="scene-info">
+                            <h3>Victoria Falls</h3>
+                            <p>Experience the majestic Victoria Falls, one of the Seven Natural Wonders of the World.</p>
+                        </div>
+                    </div>
+                    <!-- Add more scenes with relevant YouTube embeds -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Same as main page) -->
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+</body>
+</html>
