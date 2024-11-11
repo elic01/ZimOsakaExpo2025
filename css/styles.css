@@ -1092,3 +1092,47 @@ body.dark-mode {
         width: 300px;
     }
 }
+.map-section {
+    padding: 4rem 0;
+    background-color: var(--bg-color);
+}
+
+.map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.map-wrapper {
+    margin: 2rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.venue-info {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.venue-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.venue-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.venue-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.venue-details i {
+    color: var(--primary-color);
+}
