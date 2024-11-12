@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
     <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
 <body>
     <!-- Header -->
@@ -558,16 +560,31 @@ formInputs.forEach(input => {
         }
     });
 });
-
+// EmailJS Integration
+    emailjs.init("JBKAGhXljdtlqG8bC"); // Add your EmailJS public key here
+  
 // Form Submission
 const contactForm = document.querySelector('.contact-form');
 
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Add form submission logic here
-    alert('Thank you for your message! We will get back to you soon.');
-    contactForm.reset();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+
+    emailjs.send('service_eypn1ev', 'template_0y60so5', formData)
+        .then(function(response) {
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        }, function(error) {
+            alert('Oops! Something went wrong. Please try again later.');
+        });
 });
+
 
 // Initialize AOS
 AOS.init({
