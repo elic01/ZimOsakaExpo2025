@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Zimbabwe Expo 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-gray-900 text-white">
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+
+    <!-- Login Form -->
+    <div id="loginForm" class="relative z-10 min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-xl w-96">
+            <h2 class="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+            <form id="adminLogin" class="space-y-4">
+                <div>
+                    <label class="block mb-2">Username</label>
+                    <input type="text" id="username" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+                </div>
+                <div>
+                    <label class="block mb-2">Password</label>
+                    <input type="password" id="password" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 py-2 rounded hover:bg-blue-700 transition">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden relative z-10">
+        <nav class="bg-gray-800 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-xl font-bold">Zimbabwe Expo 2025 Admin</h1>
+                <button id="logoutBtn" class="bg-red-600 px-4 py-2 rounded">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container mx-auto p-6">
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-gray-400">Total Visitors</h3>
+                    <p class="text-2xl font-bold">24,567</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-gray-400">Event Registrations</h3>
+                    <p class="text-2xl font-bold">1,234</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-gray-400">Feedback Count</h3>
+                    <p class="text-2xl font-bold">892</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-gray-400">Active Users</h3>
+                    <p class="text-2xl font-bold">156</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="mb-4">Visitor Traffic</h3>
+                    <canvas id="visitorChart"></canvas>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="mb-4">Engagement Metrics</h3>
+                    <canvas id="engagementChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Content Management -->
+            <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                <h3 class="mb-4 text-xl font-bold">Content Management</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block mb-2">Event Title</label>
+                        <input type="text" class="w-full p-2 rounded bg-gray-700 border border-gray-600">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Event Description</label>
+                        <textarea class="w-full p-2 rounded bg-gray-700 border border-gray-600" rows="4"></textarea>
+                    </div>
+                    <button class="bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition">Update Content</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+        // Particles.js Configuration
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 80 },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: {
+            enable: true,
+            speed: 2
+        }
+    }
+});
+
+// Authentication
+const adminLogin = document.getElementById('adminLogin');
+const dashboard = document.getElementById('dashboard');
+const loginForm = document.getElementById('loginForm');
+const logoutBtn = document.getElementById('logoutBtn');
+
+adminLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple authentication - Replace with secure backend authentication
+    if (username === 'admin' && password === 'expo2025') {
+        loginForm.classList.add('hidden');
+        dashboard.classList.remove('hidden');
+        initializeCharts();
+    } else {
+        alert('Invalid credentials');
+    }
+});
+
+logoutBtn.addEventListener('click', () => {
+    loginForm.classList.remove('hidden');
+    dashboard.classList.add('hidden');
+});
+
+// Charts Initialization
+function initializeCharts() {
+    // Visitor Traffic Chart
+    const visitorCtx = document.getElementById('visitorChart').getContext('2d');
+    new Chart(visitorCtx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+                label: 'Monthly Visitors',
+                data: [1200, 1900, 3000, 5000, 6000, 7000],
+                borderColor: '#3b82f6',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: { color: '#fff' }
+                }
+            },
+            scales: {
+                y: { grid: { color: '#374151' }, ticks: { color: '#fff' } },
+                x: { grid: { color: '#374151' }, ticks: { color: '#fff' } }
+            }
+        }
+    });
+
+    // Engagement Metrics Chart
+    const engagementCtx = document.getElementById('engagementChart').getContext('2d');
+    new Chart(engagementCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Comments', 'Shares', 'Likes', 'Registrations'],
+            datasets: [{
+                label: 'Engagement Metrics',
+                data: [300, 450, 850, 200],
+                backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: { color: '#fff' }
+                }
+            },
+            scales: {
+                y: { grid: { color: '#374151' }, ticks: { color: '#fff' } },
+                x: { grid: { color: '#374151' }, ticks: { color: '#fff' } }
+            }
+        }
+    });
+}
+
+// Real-time Updates
+setInterval(() => {
+    // Simulate real-time data updates
+    document.querySelector('.active-users').textContent = 
+        Math.floor(Math.random() * 100 + 100);
+}, 5000);
+
+</script>
+</body>
+</html>
