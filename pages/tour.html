@@ -10,229 +10,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="icon" type="image/png" href="../assets/images/logo.png">
 </head>
-<style>
-/* Header Styles */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    height: 40px;
-    width: auto;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-light);
-}
-/* Virtual Tour Page Specific Styles */
-.livestream-button-container {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.livestream-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background: var(--accent-color);
-    color: #FFB142;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.livestream-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.livestream-btn i {
-    font-size: 1.2em;
-}
-
-.virtual-tour-hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/VictoriaFalls.jpg');
-    height: 60vh;
-}
-
-.virtual-tour-section.expanded {
-    padding: 50px 0;
-}
-
-.scene-selector {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.scene-btn {
-    padding: 15px 30px;
-    width: 200px;
-    cursor: pointer;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.scene-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-.scene-btn.active {
-    background: var(--accent-color);
-    color: rgb(255, 221, 0);
-}
-
-.scene-btn i {
-    font-size: 1.2em;
-}
-
-.scene-btn span {
-    font-size: 1.1em;
-    font-weight: 500;
-}
-
-
-.scene-info {
-    padding: 20px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-    /* Footer Styles */
-.footer {
-    background: var(--bg-light);
-    color: var(--text-light);
-    padding: 4rem 2rem 2rem;
-}
-
-.dark-mode .footer {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-}
-
-.footer-container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
-}
-
-.footer-section h3 {
-    color: var(--primary-light);
-    margin-bottom: 1.5rem;
-}
-
-.dark-mode .footer-section h3 {
-    color: var(--primary-dark);
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-section ul li a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: var(--primary-light);
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.social-links a {
-    color: inherit;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-light);
-}
-
-.footer-bottom {
-    padding-top: 2rem;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-</style>
 <body>
     <!-- Header (Same as main page) -->
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <img src="/assets/images/logo.png" alt="Zimbabwe Beyond the Limit Logo" height="40">Zimbabwe Beyond the Limit</div>
+                <img src="../assets/images/logo.png" alt="Zimbabwe Beyond the Limit Logo" height="40">Zimbabwe Beyond the Limit</div>
             <div class="nav-links">
-                <a href="/index.html">Home</a>
-                <a href="/index.html">About</a>
-                <a href="/index.html">Vision 2030</a>
-                <a href="/index.html#opportunities">Opportunities</a>
-                <a href="/index.html#culture">Culture</a>
+                <a href="../index.html">Home</a>
+                <a href="../index.html">About</a>
+                <a href="../index.html">Vision 2030</a>
+                <a href="../index.html#opportunities">Opportunities</a>
+                <a href="../index.html#culture">Culture</a>
                 <a href="tour.html">Virtual Tour</a>
-                <a href="/index.html#events">Events</a>
-                <a href="/index.html#contact">Contact</a>
+                <a href="../index.html#events">Events</a>
+                <a href="../index.html#contact">Contact</a>
             </div>
         </nav>
     </header>
@@ -302,10 +94,10 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="/index.html#home">Home</a></li>
-                    <li><a href="/index.html#about">About</a></li>
-                    <li><a href="/index.html#vision">Vision 2030</a></li>
-                    <li><a href="/index.html#opportunities">Opportunities</a></li>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#vision">Vision 2030</a></li>
+                    <li><a href="../index.html#opportunities">Opportunities</a></li>
                 </ul>
             </div>
             <div class="footer-section">
