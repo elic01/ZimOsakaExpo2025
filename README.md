@@ -35,3 +35,9 @@ Smooth Scroll: The website includes smooth scrolling functionality for navigatio
 Chatbot Toggle: It provide a chatbot functionality
 
 Overall, the website is designed to provide a visually appealing and user-friendly experience for visitors to learn more about the Beyond the Limit Expo 2025 - Zimbabwe Pavilion.
+
+## Technologies Used
+
+- HTML5
+- CSS
+- JavaScript
