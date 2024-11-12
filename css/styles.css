@@ -1,3 +1,98 @@
+.expo-section {
+    padding: 80px 0;
+    background: var(--bg-color);
+}
+
+.expo-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.expo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.expo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    margin-top: 3rem;
+}
+.expo-highlights {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+.expo-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-left: 3rem;
+    transition: all 0.3s ease;
+}
+
+.expo-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.highlight-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-left: 3rem;
+}
+
+.highlight-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Dark mode support */
+.dark-mode .expo-card,
+.dark-mode .highlight-item {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
 .weather-widget {
     padding: 2rem 0;
     background: var(--bg-gradient);
