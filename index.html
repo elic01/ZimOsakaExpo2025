@@ -338,6 +338,53 @@
         <i class="fas fa-comments"></i>
     </button>
 </div>
+<!-- feedback section -->
+<section id="feedback" class="feedback-section">
+    <div class="feedback-container">
+        <h2 class="section-title" data-aos="fade-up">Comments & Feedback</h2>
+        <div class="feedback-wrapper">
+            <form class="feedback-form" data-aos="fade-up">
+                <div class="form-group">
+                    <input type="text" id="feedback-name" required>
+                    <label for="feedback-name">Your Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="feedback-email" required>
+                    <label for="feedback-email">Your Email</label>
+                </div>
+                <div class="form-group">
+                    <select id="feedback-type" required>
+                        <option value="">Select Feedback Type</option>
+                        <option value="general">General Feedback</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="improvement">Area for Improvement</option>
+                        <option value="appreciation">Appreciation</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="feedback-message" required rows="5"></textarea>
+                    <label for="feedback-message">Your Feedback</label>
+                </div>
+                <div class="rating-group">
+                    <label>Rate Your Experience:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1"><i class="fas fa-star"></i></label>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+</section>
 
 <!-- Contact Section -->
 <section id="contact" class="contact-section">
@@ -637,6 +684,35 @@ contactForm.addEventListener('submit', (e) => {
         }, function(error) {
             alert('Oops! Something went wrong. Please try again later.');
         });
+});
+// Feedback Form Handling
+const feedbackForm = document.querySelector('.feedback-form');
+
+feedbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const rating = document.querySelector('input[name="rating"]:checked')?.value || 'Not rated';
+    
+    const feedbackData = {
+        name: document.getElementById('feedback-name').value,
+        email: document.getElementById('feedback-email').value,
+        type: document.getElementById('feedback-type').value,
+        message: document.getElementById('feedback-message').value,
+        rating: rating
+    };
+
+    emailjs.send('service_eypn1ev', 'template_0y60so5', {
+        name: feedbackData.name,
+        email: feedbackData.email,
+        subject: `Feedback: ${feedbackData.type}`,
+        message: `Rating: ${feedbackData.rating}/5\n\nFeedback: ${feedbackData.message}`
+    })
+    .then(function(response) {
+        alert('Thank you for your feedback! We value your input.');
+        feedbackForm.reset();
+    }, function(error) {
+        alert('Oops! Something went wrong. Please try again later.');
+    });
 });
 
 

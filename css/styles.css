@@ -49,6 +49,60 @@
     font-size: 1.1rem;
     color: var(--text-color);
 }
+.feedback-section {
+    padding: 80px 0;
+    background-color: var(--bg-color);
+}
+
+.feedback-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.feedback-form {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    cursor: pointer;
+    font-size: 24px;
+    transition: color 0.2s;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #ffd700;
+}
+
+.rating-group {
+    margin: 20px 0;
+}
+
+#feedback-type {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--input-bg);
+    color: var(--text-color);
+}
 
 
 /* Virtual Tour Page Specific Styles */
