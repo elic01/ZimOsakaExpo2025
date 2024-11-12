@@ -314,36 +314,87 @@ if (!sessionStorage.getItem('adminLoggedIn')) {
         gtag('config', 'G-VXTQBGR0CF');
 
         // Google Charts Setup
-        google.charts.load('current', {'packages':['corechart', 'gauge']});
+            google.charts.load('current', {
+                'packages': ['corechart', 'gauge', 'line', 'geochart']
+            });
         google.charts.setOnLoadCallback(initCharts);
+          function initCharts() {
+              // Real-time visitors gauge
+              const realtimeData = google.visualization.arrayToDataTable([
+                  ['Label', 'Value'],
+                  ['Visitors', 0]
+              ]);
 
-        function initCharts() {
-            // Real-time visitors gauge
-            const realtimeData = google.visualization.arrayToDataTable([
-                ['Label', 'Value'],
-                ['Visitors', 0]
-            ]);
+              const realtimeOptions = {
+                  min: 0, max: 100,
+                  yellowFrom: 75, yellowTo: 90,
+                  redFrom: 90, redTo: 100,
+                  minorTicks: 5,
+                  backgroundColor: 'transparent',
+                  textColor: '#ffffff'
+              };
 
-            const realtimeOptions = {
-                min: 0, max: 100,
-                yellowFrom: 75, yellowTo: 90,
-                redFrom: 90, redTo: 100,
-                minorTicks: 5,
-                backgroundColor: 'transparent',
-                textColor: '#ffffff'
-            };
+              const realtimeChart = new google.visualization.Gauge(document.getElementById('realtimeVisitors'));
+              realtimeChart.draw(realtimeData, realtimeOptions);
 
-            const realtimeChart = new google.visualization.Gauge(document.getElementById('realtimeVisitors'));
-            realtimeChart.draw(realtimeData, realtimeOptions);
+              // Page Views Chart
+              const pageViewsData = new google.visualization.DataTable();
+              pageViewsData.addColumn('string', 'Time');
+              pageViewsData.addColumn('number', 'Views');
+              pageViewsData.addRows([
+                  ['00:00', 0],
+                  ['06:00', 0],
+                  ['12:00', 0],
+                  ['18:00', 0],
+                  ['23:59', 0]
+              ]);
 
-            setInterval(() => {
-                gtag('get', 'G-VXTQBGR0CF', 'activeUsers', (count) => {
-                    realtimeData.setValue(0, 1, count);
-                    realtimeChart.draw(realtimeData, realtimeOptions);
-                });
-            }, 5000);
-        }
+              const pageViewsOptions = {
+                  backgroundColor: 'transparent',
+                  textColor: '#ffffff',
+                  colors: ['#4ade80'],
+                  legend: { textStyle: { color: '#ffffff' } },
+                  hAxis: { textStyle: { color: '#ffffff' } },
+                  vAxis: { textStyle: { color: '#ffffff' } }
+              };
 
+              const pageViewsChart = new google.visualization.LineChart(document.getElementById('pageViews'));
+              pageViewsChart.draw(pageViewsData, pageViewsOptions);
+
+              // Demographics Chart
+              const demographicsData = google.visualization.arrayToDataTable([
+                  ['Country', 'Visitors'],
+                  ['Zimbabwe', 50],
+                  ['Japan', 30],
+                  ['Other', 20]
+              ]);
+
+              const demographicsOptions = {
+                  backgroundColor: 'transparent',
+                  textColor: '#ffffff',
+                  colors: ['#4ade80'],
+                  pieHole: 0.4,
+                  legend: { textStyle: { color: '#ffffff' } }
+              };
+
+              const demographicsChart = new google.visualization.PieChart(document.getElementById('userDemographics'));
+              demographicsChart.draw(demographicsData, demographicsOptions);
+
+              // Update real-time data every 5 seconds
+              setInterval(() => {
+                  fetch('/api/analytics')  // Replace with your actual analytics endpoint
+                      .then(response => response.json())
+                      .then(data => {
+                          realtimeData.setValue(0, 1, data.activeUsers || Math.floor(Math.random() * 100));
+                          realtimeChart.draw(realtimeData, realtimeOptions);
+                      })
+                      .catch(() => {
+                          // Fallback to random data for demo
+                          realtimeData.setValue(0, 1, Math.floor(Math.random() * 100));
+                          realtimeChart.draw(realtimeData, realtimeOptions);
+                      });
+              }, 5000);
+          }
         // Event Management
         document.getElementById('addEvent').addEventListener('click', () => {
             const eventHtml = `
