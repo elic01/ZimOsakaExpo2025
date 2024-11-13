@@ -502,6 +502,7 @@ button:hover {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    color: #000;
 }
 
 .scene-btn:hover {
